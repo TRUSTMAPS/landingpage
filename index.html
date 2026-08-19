@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRUSTMAPS | Trustworthy Medical AI Evaluation for India</title>
+    <meta name="description"
+        content="TRUSTMAPS is a national research initiative building trustworthy AI evaluation, fairness, privacy, and safety frameworks for medical AI in India.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="author" content="TRUSTMAPS Research Initiative">
+    <meta name="keywords"
+        content="TRUSTMAPS, medical AI, trustworthy AI, AI evaluation, healthcare AI, India, fairness, privacy, security, explainability">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TRUSTMAPS">
+    <meta property="og:title" content="TRUSTMAPS | Trustworthy Medical AI Evaluation for India">
+    <meta property="og:description"
+        content="Building the national foundation to measure, evaluate, and ensure medical AI systems used in Indian healthcare are trustworthy, fair, and secure.">
+    <meta property="og:image" content="https://placehold.co/1200x630/f8fafc/0f172a.png?text=TRUSTMAPS">
+    <meta property="og:image:alt" content="TRUSTMAPS medical AI initiative preview image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TRUSTMAPS | Trustworthy Medical AI Evaluation for India">
+    <meta name="twitter:description"
+        content="A national research initiative for trustworthy, fair, and secure medical AI in India.">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/f8fafc/0f172a.png?text=TRUSTMAPS">
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f172a'/%3E%3Cpath fill='%23ffffff' d='M32 10l16 6v12c0 11-7.5 21-16 26-8.5-5-16-15-16-26V16l16-6zm0 8.4L22 22v6.1c0 8 5.2 15.6 10 19.5 4.8-3.9 10-11.5 10-19.5V22l-10-3.6z'/%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f172a', // slate-900
+                        secondary: '#334155', // slate-700
+                        accent: '#2563eb', // blue-600
+                        light: '#f8fafc', // slate-50
+                        surface: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Subtle grid background for modern feel */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: revealAnimation 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes revealAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .role-badge {
+            @apply inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.15em] uppercase mb-4 transition-all duration-300;
+        }
+
+        .role-pi {
+            @apply bg-accent/5 text-accent ring-1 ring-accent/20;
+        }
+
+        .role-pi::before {
+            content: '';
+            @apply w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(37, 99, 235, 0.6)] animate-pulse;
+        }
+
+        .role-copi {
+            @apply bg-slate-100 text-slate-500 ring-1 ring-slate-200;
+        }
+
+        .role-copi::before {
+            content: '';
+            @apply w-1.5 h-1.5 rounded-full bg-slate-400;
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TRUSTMAPS",
+        "description": "A national research initiative building trustworthy AI evaluation, fairness, privacy, and safety frameworks for medical AI in India."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TRUSTMAPS Research Initiative",
+        "description": "National research initiative focused on trustworthy medical AI evaluation for India.",
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "contactType": "academic collaboration",
+            "email": "tanchak@iitd.ac.in",
+            "telephone": "011-26591076"
+        }]
+    }
+    </script>
+</head>
+
+<body class="bg-light text-primary antialiased selection:bg-accent selection:text-white">
+
+    <!-- Minimal Navigation -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 ICMR will serve as the certification authority.backdrop-blur-xl border-b border-slate-200/50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between h-20 md:h-24 items-center">
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="trustmaps.png" alt="TRUSTMAPS Logo" class="h-6 md:h-8 w-auto object-contain">
+                </div>
+
+                <div class="hidden md:flex space-x-10">
+                    <a href="#context"
+                        class="text-secondary hover:text-accent font-medium transition-colors">Context</a>
+                    <a href="#evaluation"
+                        class="text-secondary hover:text-accent font-medium transition-colors">Evaluation</a>
+                    <a href="#partners"
+                        class="text-secondary hover:text-accent font-medium transition-colors">Partners</a>
+                    <a href="#contact"
+                        class="text-secondary hover:text-accent font-medium transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-primary hover:text-accent focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full">
+            <div class="px-6 py-6 space-y-4 shadow-2xl">
+                <a href="#context" class="block text-lg font-medium text-secondary hover:text-accent">Context</a>
+                <a href="#evaluation" class="block text-lg font-medium text-secondary hover:text-accent">Evaluation</a>
+                <a href="#partners" class="block text-lg font-medium text-secondary hover:text-accent">Partners</a>
+                <a href="#contact" class="block text-lg font-medium text-secondary hover:text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+        class="relative min-h-[calc(100svh-4rem)] md:min-h-screen flex items-center pt-24 pb-4 md:pt-40 md:pb-32 lg:pt-56 lg:pb-48 overflow-hidden bg-grid">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-light/50 to-light pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto px-6 lg:px-12 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50/80 text-accent font-medium text-xs sm:text-sm mb-6 md:mb-8 reveal border border-blue-100 backdrop-blur-sm">
+                National Center for Measurement and Assurance of Trustworthiness, Privacy and Security of Medical AI
+                Systems
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 md:mb-8 reveal delay-100">
+                Making Medical AI <br class="hidden md:block" />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Safe for
+                    India.</span>
+            </h1>
+
+            <p
+                class="text-lg sm:text-xl md:text-2xl text-secondary max-w-3xl mx-auto leading-relaxed mb-8 md:mb-12 reveal delay-200 font-light">
+                We are building the national foundation to measure, evaluate, and ensure that AI systems used in Indian
+                healthcare are trustworthy, fair, and secure.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why This Matters (Context) -->
+    <section id="context" class="py-16 md:py-24 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
+                <div>
+                    <h2
+                        class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 md:mb-8 leading-tight tracking-tight">
+                        AI is scaling fast.<br>Evaluation is not.</h2>
+                    <p class="text-lg md:text-xl text-secondary leading-relaxed mb-6 font-light">
+                        Artificial Intelligence is rapidly entering Indian hospitals and public health programs. But a
+                        crucial question remains unanswered: <strong class="font-semibold text-primary">How do we know
+                            these systems are safe?</strong>
+                    </p>
+                    <p class="text-lg md:text-xl text-secondary leading-relaxed font-light">
+                        Current standards only measure accuracy. They fail to test for hidden biases, data leaks, and
+                        dangerous "hallucinations" that occur when AI faces real-world Indian clinical environments.
+                    </p>
+                </div>
+
+                <div class="space-y-8 md:space-y-12 bg-light p-6 sm:p-10 md:p-14 rounded-3xl border border-slate-100">
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="text-3xl text-accent"><i class="fa-solid fa-unlock-keyhole"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Privacy Risks</h3>
+                            <p class="text-secondary leading-relaxed">Medical AI can unintentionally memorize and leak
+                                sensitive patient data.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="text-3xl text-accent"><i class="fa-solid fa-scale-unbalanced"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Hidden Bias</h3>
+                            <p class="text-secondary leading-relaxed">Systems trained on narrow data can underdiagnose
+                                marginalized populations.</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                        <div class="text-3xl text-accent"><i class="fa-solid fa-notes-medical"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Clinical Hallucinations</h3>
+                            <p class="text-secondary leading-relaxed">AI often invents highly confident, yet completely
+                                fabricated medical advice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Evaluate -->
+    <section id="evaluation" class="py-16 md:py-24 lg:py-32 bg-primary text-white relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/10 to-transparent pointer-events-none">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="max-w-3xl mb-16 md:mb-24">
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 md:mb-8 tracking-tight">What we test.
+                </h2>
+                <p class="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
+                    We evaluate multimodal AI systems (text, imaging, speech, and video) across four critical pillars of
+                    trustworthiness before they reach the patient.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 md:gap-x-16 gap-y-12 md:gap-y-24">
+                <!-- Pillar 1 -->
+                <div class="group">
+                    <div class="text-3xl md:text-4xl text-accent mb-4 md:mb-6"><i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Security & Privacy</h3>
+                    <p class="text-slate-400 leading-relaxed text-base md:text-lg font-light">
+                        Subjecting models to rigorous stress tests to ensure they resist adversarial attacks and comply
+                        strictly with the Digital Personal Data Protection (DPDP) Act.
+                    </p>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="group">
+                    <div class="text-3xl md:text-4xl text-accent mb-4 md:mb-6"><i
+                            class="fa-solid fa-users-viewfinder"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Fairness & Equity</h3>
+                    <p class="text-slate-400 leading-relaxed text-base md:text-lg font-light">
+                        Auditing systems across age, gender, language, and geography to expose disparities and ensure
+                        equitable outcomes for all Indian demographic groups.
+                    </p>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="group">
+                    <div class="text-3xl md:text-4xl text-accent mb-4 md:mb-6"><i
+                            class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Explainability</h3>
+                    <p class="text-slate-400 leading-relaxed text-base md:text-lg font-light">
+                        Opening the "black box." We test whether an AI's decision-making process aligns with actual
+                        clinical logic, ensuring doctors can trust and understand the output.
+                    </p>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="group">
+                    <div class="text-3xl md:text-4xl text-accent mb-4 md:mb-6"><i
+                            class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3 md:mb-4">Uncertainty Management</h3>
+                    <p class="text-slate-400 leading-relaxed text-base md:text-lg font-light">
+                        Ensuring systems know when to say "I don't know." We measure a model's ability to communicate
+                        doubt and defer to a human clinician when necessary.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- National Ecosystem Statement -->
+    <section class="py-16 md:py-32 bg-light text-center px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2
+                class="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight text-primary leading-tight mb-6 md:mb-8">
+                Our ultimate goal is a <br />
+                <span class="text-accent">National Certification Ecosystem*</span>
+            </h2>
+            <p class="text-lg sm:text-xl md:text-2xl text-secondary font-light leading-relaxed">
+                We are establishing the scorecards, trust labels, and regulatory frameworks required to scale Medical AI
+                safely across India's hospitals and public health infrastructure.
+            </p>
+            <p class="mt-5 text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.2em] text-slate-500">
+                *ICMR will serve as the certification authority.
+            </p>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-16 md:py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+
+            <!-- Funded By -->
+            <div class="mb-16 md:mb-20">
+                <h2 class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 md:mb-8">Funded By
+                </h2>
+                <div class="flex justify-center items-center">
+                    <img src="icmr.png" alt="ICMR Logo"
+                        class="h-20 md:h-28 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+                </div>
+            </div>
+
+            <!-- Collaborating Institutions -->
+            <h2 class="text-xs sm:text-sm font-bold text-slate-400 uppercase tracking-widest mb-10 md:mb-12">
+                Collaborating Institutions</h2>
+
+            <div class="flex flex-wrap justify-center gap-10 md:gap-16 items-center">
+                <img src="iitd.png" alt="IIT Delhi Logo"
+                    class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+                <img src="iitkgp.png" alt="IIT Kharagpur Logo"
+                    class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+
+                <img src="aiimsd.png" alt="AIIMS Delhi Logo"
+                    class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+
+                <img src="tmc.png" alt="Tata Medical Center Logo"
+                    class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+
+                <img src="ashoka.png" alt="Ashoka University Logo"
+                    class="h-16 md:h-20 object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-80 hover:opacity-100">
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaborators Section -->
+    <section id="team" class="py-20 md:py-32 bg-light relative overflow-hidden">
+        <!-- Decorative background elements -->
+        <div
+            class="absolute top-0 left-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2">
+        </div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-20 md:mb-28 scroll-reveal">
+                <h2 class="text-xs sm:text-sm font-bold text-accent uppercase tracking-[0.3em] mb-4">The Experts</h2>
+                <h3 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-primary tracking-tight">Our
+                    Collaborators</h3>
+                <p class="mt-6 text-lg text-secondary font-light max-w-2xl mx-auto">
+                    Bringing together leading researchers from India's premier technical and medical institutions.
+                </p>
+            </div>
+
+            <!-- Institute-wise Grouping -->
+            <div class="space-y-32">
+
+                <!-- IIT Delhi -->
+                <div class="institute-group">
+                    <div class="flex items-center gap-4 mb-12 scroll-reveal">
+                        <img src="iitd.png" alt="IIT Delhi Logo" class="h-10 md:h-12 w-auto object-contain">
+                        <h4 class="text-2xl md:text-3xl font-bold text-primary">IIT Delhi</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                        <!-- Dr Tanmoy Chakraborty -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/tanmoy.png" alt="Dr Tanmoy Chakraborty"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-pi mb-3">PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Tanmoy Chakraborty</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+
+                        </div>
+
+                        <!-- Dr Sandeep Kumar -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/sandeep.png" alt="Dr Sandeep Kumar"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Sandeep Kumar</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Associate Professor</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- IIT Kharagpur -->
+                <div class="institute-group">
+                    <div class="flex items-center gap-4 mb-12 scroll-reveal">
+                        <img src="iitkgp.png" alt="IIT Kharagpur Logo" class="h-10 md:h-12 w-auto object-contain">
+                        <h4 class="text-2xl md:text-3xl font-bold text-primary">IIT Kharagpur</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                        <!-- Prof Partha Pratim Chakrabarti -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/ppc.png" alt="Prof Partha Pratim Chakrabarti"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Partha Pratim Chakrabarti</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+
+                        </div>
+
+                        <!-- Prof Debdeep Mukhopadhyay -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/debdeep.png" alt="Prof Debdeep Mukhopadhyay"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Debdeep Mukhopadhyay</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+
+                        </div>
+
+                        <!-- Dr Aritra Hazra -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/aritra.png" alt="Dr Aritra Hazra" class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Aritra Hazra</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Associate Professor</p>
+
+                        </div>
+
+                        <!-- Dr Rajlakshmi Guha -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/rajlakshmi.png" alt="Dr Rajlakshmi Guha"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Rajlakshmi Guha</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Associate Professor</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ashoka University -->
+                <div class="institute-group">
+                    <div class="flex items-center gap-4 mb-12 scroll-reveal">
+                        <img src="ashoka.png" alt="Ashoka University Logo" class="h-10 md:h-12 w-auto object-contain">
+                        <h4 class="text-2xl md:text-3xl font-bold text-primary">Ashoka University</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                        <!-- Prof Lipika Dey -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/lipika.png" alt="Prof Lipika Dey" class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Lipika Dey</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+                        </div>
+
+                        <!-- Prof Anurag Agrawal -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/anurag.png" alt="Prof Anurag Agrawal"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Anurag Agrawal</h5>
+                            <p class="text-accent font-medium text-sm mb-4 text-balance">Dean, BioSciences and Health
+                                Research</p>
+                        </div>
+
+                        <!-- Prof Partha Pratim Das -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/ppd.png" alt="Prof Partha Pratim Das"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Partha Pratim Das</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+                        </div>
+
+                        <!-- Dr Dipanjan Ray -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/dipanjan.png" alt="Dr Dipanjan Ray"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Dipanjan Ray</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Assistant Professor</p>
+
+                        </div>
+
+                        <!-- Prof Nandini Chatterjee Singh -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/nandini.png" alt="Prof Nandini Chatterjee Singh"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Nandini Chatterjee Singh</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Head of the Department</p>
+
+                        </div>
+                        <!-- Prof Santanu Chaudhury -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/santanu.png" alt="Prof Santanu Chaudhury"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Prof Santanu Chaudhury</h5>
+                            <p class="text-accent font-medium text-sm mb-4 text-balance">Professor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIIMS Delhi -->
+                <div class="institute-group">
+                    <div class="flex items-center gap-4 mb-12 scroll-reveal">
+                        <img src="aiimsd.png" alt="AIIMS Delhi Logo" class="h-10 md:h-12 w-auto object-contain">
+                        <h4 class="text-2xl md:text-3xl font-bold text-primary">AIIMS Delhi</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                        <!-- Dr Koushik Sinha Deb -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/koushik.png" alt="Dr Koushik Sinha Deb"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Koushik Sinha Deb</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+                        </div>
+
+                        <!-- Dr Rajesh Sagar -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/rajesh.png" alt="Dr Rajesh Sagar" class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Rajesh Sagar</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Professor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tata Medical Center -->
+                <div class="institute-group">
+                    <div class="flex items-center gap-4 mb-12 scroll-reveal">
+                        <img src="tmc.png" alt="Tata Medical Center Logo" class="h-10 md:h-12 w-auto object-contain">
+                        <h4 class="text-2xl md:text-3xl font-bold text-primary">Tata Medical Center</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+                        <!-- Dr Santam Chakraborty -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/santam.png" alt="Dr Santam Chakraborty"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Santam Chakraborty</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Associate Consultant</p>
+                        </div>
+
+                        <!-- Dr Indranil Mallick -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/indranil.png" alt="Dr Indranil Mallick"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Indranil Mallick</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Junior Consultant</p>
+                        </div>
+
+                        <!-- Dr Sanjoy Chatterjee -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/sanjoy.png" alt="Dr Sanjoy Chatterjee"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Sanjoy Chatterjee</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Senior Consultant</p>
+                        </div>
+
+                        <!-- Dr Rimpa Basu Achari -->
+                        <div class="glass-card p-8 rounded-[2rem] flex flex-col items-center text-center scroll-reveal">
+                            <div class="w-32 h-32 rounded-2xl overflow-hidden mb-6 shadow-xl ring-4 ring-white">
+                                <img src="peoples/rimpa.png" alt="Dr Rimpa Basu Achari"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <span class="role-badge role-copi mb-3">Co-PI</span>
+                            <h5 class="text-xl font-bold text-primary mb-1">Dr Rimpa Basu Achari</h5>
+                            <p class="text-accent font-medium text-sm mb-4">Senior Consultant</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-32 bg-slate-900 text-white border-t border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 md:mb-6 tracking-tight">
+                        Get in Touch
+                    </h2>
+
+                    <p class="text-slate-400 text-base md:text-lg font-light leading-relaxed mb-6 md:mb-8">
+                        For academic collaborations, institutional partnerships, or general inquiries regarding the
+                        TRUSTMAPS initiative.
+                    </p>
+
+                    <a href="https://www.linkedin.com/company/trustmaps/" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#0077B5] text-white font-semibold hover:bg-[#006399] transition-all duration-300 shadow-lg">
+                        <i class="fab fa-linkedin text-xl"></i>
+                        <span>Follow on LinkedIn</span>
+                    </a>
+                </div>
+
+                <div
+                    class="bg-white/5 p-6 sm:p-8 md:p-10 rounded-3xl border border-white/10 backdrop-blur-md break-words">
+                    <div class="mb-6 md:mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Dr. Tanmoy Chakraborty</h3>
+                        <p class="text-accent font-medium text-sm md:text-base">Associate Professor</p>
+                    </div>
+
+                    <div class="space-y-4 md:space-y-5 text-slate-300 font-light text-sm md:text-base">
+                        <div class="flex items-start gap-3 md:gap-4">
+                            <i class="fa-solid fa-building text-slate-500 mt-1"></i>
+                            <div>
+                                <p>Dept. of Electrical Engineering (Computer Technology Group)</p>
+                                <p>Joint Faculty, Yardi School of Artificial Intelligence</p>
+                                <p>Laboratory for Computational Social Systems (LCS2)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <i class="fa-solid fa-envelope text-slate-500"></i>
+                            <a href="mailto:tanchak@iitd.ac.in"
+                                class="hover:text-white transition-colors truncate">tanchak@iitd.ac.in</a>
+                        </div>
+
+                        <div class="flex items-center gap-3 md:gap-4">
+                            <i class="fa-solid fa-phone text-slate-500"></i>
+                            <a href="tel:01126591076" class="hover:text-white transition-colors">011-26591076</a>
+                        </div>
+
+                        <div class="flex items-start gap-3 md:gap-4 pt-4 border-t border-white/10 mt-4">
+                            <i class="fa-solid fa-location-dot text-slate-500 mt-1"></i>
+                            <p class="leading-relaxed">
+                                Indian Institute of Technology Delhi<br>
+                                Hauz Khas, New Delhi, Delhi 110016, India
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="bg-slate-950 py-8 md:py-12 border-t border-slate-800 text-center md:text-left">
+        <div
+            class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
+            <div class="flex items-center gap-2 md:gap-3">
+                <i class="fa-solid fa-shield-halved text-slate-400 text-xl md:text-base"></i>
+                <span class="font-bold tracking-tight text-white text-lg md:text-base">TRUSTMAPS</span>
+            </div>
+            <div class="text-slate-500 text-xs md:text-sm font-light">
+                &copy; 2026 TRUSTMAPS Research Initiative.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
